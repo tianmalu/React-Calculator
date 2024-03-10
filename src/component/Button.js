@@ -1,6 +1,8 @@
 //First define Buttons in the calulator
 
 import PropTypes from 'prop-types';
+import "../styles/Button.css"
+
 
 export default function Button(props){
     /*
@@ -14,7 +16,7 @@ export default function Button(props){
     return (
         //props.name pass from outsides.
         <div className={className}>
-            <button>{props.name}</button> 
+            <button onClick={() => props.clickHandler(props.name)}>{props.name}</button>
         </div>
     )
 }
