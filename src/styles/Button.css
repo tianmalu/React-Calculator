@@ -25,3 +25,9 @@
     background-color: #f5923e;
     color: white;
 }
+
+/* Add hover styles */
+.component-button button:hover {
+    background-color: #b17b2a; /* Change to your desired hover color */
+    /* You can also adjust other styles here, such as text color or box shadow */
+  }

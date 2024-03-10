@@ -3,6 +3,17 @@ import Big from "big.js";
 import isNumber from "./isNumber";
 import operate from "./operate";
 
+
+/**
+ * Given a button name and a calculator data object, return an updated
+ * calculator data object.
+ *
+ * Calculator data object contains:
+ *   total:String      the running total
+ *   next:String       the next number to be operated on with the total
+ *   operation:String  +, -, etc.
+ */
+
 export default function calculate(obj, buttonName) {
     // 如果运算符为 AC 则清空状态
     if (buttonName === "AC") {
@@ -20,7 +31,7 @@ export default function calculate(obj, buttonName) {
             return {};
         }
 
-        // 如果已经存在运算符，则更新被运算数（state.next)
+        //If there is an operation, update next
         if (obj.operation) {
             // 根据 obj.next 决定如何更新 stat.next
             if (obj.next) {
@@ -29,7 +40,7 @@ export default function calculate(obj, buttonName) {
             return { next: buttonName };
         }
 
-        // 如果没有运算符且存在 state.next
+        // If there is no operation, update next and clear the value
         if (obj.next) {
             const next = obj.next === "0" ? buttonName : obj.next + buttonName;
             // 返回拼接的 next 并清空 total
